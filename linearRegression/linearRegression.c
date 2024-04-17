@@ -64,8 +64,7 @@ int main(int argc, char const *argv[])
         
     }
     double ls=loss(w,b);
-    double ac=accuracy(w,b);
-    printf("w = %f\tb = %f\tloss = %f\taccuracy = %f\n",w,b,ls,ac);
+    printf("w = %f\tb = %f\tloss = %f\n",w,b,ls);
     printf("%f %f",data[12][1],data[12][0]*w+b);
     return 0;
 }
