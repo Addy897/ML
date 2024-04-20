@@ -4,10 +4,16 @@
 #include <math.h>
 #include "input.h"
 #include "output.h"
+
+
 #define n 800
 #define num_weights 8
+
+
 double weigths[num_weights];
 double bias[num_weights];
+
+
 double gradientDescentWeight(int index)
 {
     double sum = 0;
