@@ -2,7 +2,7 @@
 #include <math.h>
 #define n 19
 double data[][2]={
-    {24,21.54945196},
+{24,21.54945196},
 {50,47.46446305},
 {15,17.21865634},
 {38,36.58639803},
@@ -31,7 +31,7 @@ double gradientDescentWeight(double w,double b){
     return sum;
     
 }
-double gradientDescentBiase(double w,double b){
+double gradientDescentBias(double w,double b){
      double sum=0;
      for(int i=0;i<n;i++){
             sum+=((data[i][0]*w+b)-data[i][1]);
@@ -53,12 +53,11 @@ int main(int argc, char const *argv[])
 {
     double w=0;
     double b=0;
-    //double eps=1e-4;
     double lr=1e-4;
     int epoch=1000000;
     for(int i=0;i<epoch;i++){
         double w1=gradientDescentWeight(w,b)*lr;
-        double b1=gradientDescentBiase(w,b)*lr;
+        double b1=gradientDescentBias(w,b)*lr;
         w-=w1;
         b-=b1;
         

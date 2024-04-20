@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define n 300
+#define n 150
 #define num_weights 4
 double weigths[num_weights];
 double bias[num_weights];
@@ -383,7 +383,7 @@ int main(int argc, char const *argv[])
     double lr = 1e-3;
     double max_gradient_norm = 1e-6;
 
-    int epoch = 10e7;
+    int epoch = 1e7;
     for (int i = 0; i < epoch; i++)
     {
         double dbs[num_weights];
@@ -410,8 +410,7 @@ int main(int argc, char const *argv[])
         printf("w%d = %f b%d = %f\t", j + 1, weigths[j], j + 1, bias[j]);
     }
     printf("loss = %f\n", ls);
-    double test[5]={2016, 6.40, 12000, 1, 8.400};
-    for(int j=0;j<5;j++){
+    for(int j=290;j<299;j++){
         double py=0;
         for (size_t i = 0; i < num_weights; i++)
         {
