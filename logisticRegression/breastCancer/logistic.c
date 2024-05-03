@@ -10,7 +10,7 @@
 #define num_weights 5
 
 
-double weigths[num_weights];
+double weights[num_weights];
 double bias[num_weights];
 
 double sig(double x){
@@ -23,7 +23,7 @@ double gradientDescentWeight(int index)
     {
         double y = 0;
         for (int j = 0; j < num_weights; j++)
-            y += ((X[i][j] * weigths[j] + bias[j]));
+            y += ((X[i][j] * weights[j] + bias[j]));
         sum += (Y[i] - sig(y)) * X[i][index];
     }
     sum = sum * (-2.0 / n);
@@ -38,7 +38,7 @@ double gradientDescentBias()
     {
         double y = 0;
         for (int j = 0; j < num_weights; j++)
-            y += ((X[i][j] * weigths[j] + bias[j]));
+            y += ((X[i][j] * weights[j] + bias[j]));
         sum += (Y[i] - sig(y));
     }
     sum = sum * (-2.0 / n);
@@ -48,7 +48,7 @@ double predict(double x[num_weights]){
     double y=0;
     for (int i = 0; i < num_weights; i++)
     {
-        y+=x[i]*weigths[i]+bias[i];
+        y+=x[i]*weights[i]+bias[i];
     }
     
     return sig(y);
@@ -72,7 +72,7 @@ double loss()
     {
         double y = 0;
         for (int j = 0; j < num_weights; j++)
-            y += ((X[i][j] * weigths[j] + bias[j]));
+            y += ((X[i][j] * weights[j] + bias[j]));
         if(Y[i]==0){
         sum += -log(1-sig(y) + 1e-9);
         }else{
@@ -88,7 +88,7 @@ void initBW()
     srand(time(0));
     for (int i = 0; i < num_weights; i++)
     {
-        weigths[i] = 0;
+        weights[i] = 0;
         bias[i] = 0;
     }
 }
@@ -112,14 +112,14 @@ int main(int argc, char const *argv[])
         }
         for (int j = 0; j < num_weights; j++)
         {
-            weigths[j] -= dws[j];
+            weights[j] -= dws[j];
             bias[j] -= db;
         }
             
     }
     for (int j = 0; j < num_weights; j++)
     {
-        printf("w%d = %f b%d = %f\n", j + 1, weigths[j], j + 1, bias[j]);
+        printf("w%d = %f b%d = %f\n", j + 1, weights[j], j + 1, bias[j]);
     }
     double ls = loss();
 
