@@ -5,8 +5,8 @@
 #include "input.h"
 #include "output.h"
 
-
-#define n 800
+#define total 800
+#define n 400
 #define num_weights 8
 
 
@@ -82,12 +82,11 @@ void initBW()
 int main(int argc, char const *argv[])
 {
     initBW();
-    double lr = 1e-2;
+    double lr = 5e-2;
     double max_gradient_norm = 1e-5;
 
-    int epoch = 10e5;
+    int epoch = 1e5;
     double ls = loss();
-
     printf("loss after %d iterations = %f\n",0, ls);
     for (int i = 0; i < epoch; i++)
     {
@@ -108,6 +107,7 @@ int main(int argc, char const *argv[])
             weigths[j] -= dws[j];
             bias[j] -= dbs[j];
         }
+        
             
     }
     for (int j = 0; j < num_weights; j++)
@@ -118,7 +118,7 @@ int main(int argc, char const *argv[])
 
     printf("\nloss after %d iterations = %f\n",epoch, ls);
     
-    for(int j=290;j<299;j++){
+    for(int j=total-10;j<total;j++){
         double py=0;
         for (size_t i = 0; i < num_weights; i++)
         {
@@ -126,6 +126,8 @@ int main(int argc, char const *argv[])
         }
         printf("Orginal Value: %f\tPredicted Value: %f\n",Y[j],py);
     }
+    
+    
 
     return 0;
 }
