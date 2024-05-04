@@ -6,7 +6,8 @@
 - No. of Weights & Biases = 13
     #### Graph (Might be Wrong)
     - Loss per 1000 iter
-    ![Loss](./losses.png)
+      
+        ![Loss](./losses.png)
 
 ### Data Dictionary : [Heart Disease Dataset](https://code.datasciencedojo.com/datasciencedojo/datasets/tree/master/Heart%20Disease)
 
