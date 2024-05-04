@@ -9,7 +9,6 @@
 #define n  146
 #define num_weights 13
  
-int seed;
 
 double weights[num_weights];
 double bias[num_weights];
@@ -86,12 +85,11 @@ double loss()
 
 void initBW()
 {
-    seed=time(0);
-    srand(seed);
+    
     for (int i = 0; i < num_weights; i++)
     {
         weights[i] = 0;
-        bias[i] = rand()%10;
+        bias[i] = 0;
     }
 }
 int main(int argc, char const *argv[])
@@ -100,7 +98,6 @@ int main(int argc, char const *argv[])
     double lr = 5e-2;
 
     int epoch = 1e5;
-    
     for (int i = 0; i < epoch; i++)
     {
         double dws[num_weights];
@@ -116,6 +113,7 @@ int main(int argc, char const *argv[])
             weights[j] -= dws[j];
             bias[j] -= db;
         }
+       
             
     }
     for (int j = 0; j < num_weights; j++)
@@ -133,10 +131,8 @@ int main(int argc, char const *argv[])
     }
 
     printf("\nloss after %d iterations = %f\n",epoch, ls);
-    printf("Total accuracy = %f\nSeed = %d", accuracy(),seed);
-
+    printf("Total accuracy = %f\n", accuracy());
     
-   
 
     return 0;
 }
